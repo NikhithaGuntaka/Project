@@ -1,0 +1,175 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Claim-purchase</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+body {
+     background: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&w=1000&q=80') fixed;
+    background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 700px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+
+</style>
+</head>
+<body>
+<div>
+	<nav class="navbar navbar-expand-sm bg-dark">
+  		<h3 class=" nav-text text-info">Life-Insurance</h3>
+        <ul class="navbar-nav ml-auto">
+        
+            
+           
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+            <form class="form-horizontal" role="form">
+                <h2>Life Insurance</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="female" value="female" name="gender"> Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="male" value="male" name="gender"> Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="other" value="other" name="gender"> Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="birthDate" class="form-control">
+                    </div>
+                
+                
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber" class="col-sm-3">Phone number </label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="contactNumber" placeholder="Phone number" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Email </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                	  <label class="col-sm-8">Your Dependency</label>
+                	  <div class="col-sm-9">
+                      <select class="form-control">
+                      <option class="hidden"  selected disabled>Please select your choice</option>
+                      <option>Father</option>
+                      <option>Mother</option>
+                      <option>Wife</option>
+                      <option>Children</option>
+                      <option>Other members</option>
+                      </select>
+                      </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="col-sm-7">Would you like to set remainder for bill payments?</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="yes" value="yes" name="remainder"> Yes
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="no" value="no" name="remainder"> No
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+               
+               <div class="form-group">
+                    <label for="email" class="col-sm-3">City </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="city" placeholder="City" class="form-control" name= "city">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Zip Code </label>
+                    <div class="col-sm-9">
+                        <input type="number" id="zipcode" placeholder="Zip Code" class="form-control" name= "zipcode">
+                    </div>
+                </div>
+                
+                
+                
+                <div class="pl-3">
+                <button type="submit" class="btn btn-outline-primary btn-block">Buy Now</button>
+
+                <button type="reset" class="btn btn-outline-primary btn-block">Clear</button>
+               </div>
+            </form> 
+        </div> 
+
+
+</body>
+</html>
