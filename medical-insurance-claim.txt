@@ -1,0 +1,292 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Insurance </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+body {
+     background: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&w=1000&q=80') fixed;
+    background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 700px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.error{
+color:red;
+}
+
+</style>
+</head>
+<body>
+<div>
+	<nav class="navbar navbar-expand-sm bg-dark">
+  		<h3 class=" nav-text text-info">Vehicle-Insurance-Claim</h3>
+        <ul class="navbar-nav ml-auto">
+        
+            
+           
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+
+                <form:form class="form-horizontal" role="form" method="post" action="/vehicleinsreg" modelAttribute="vehicleinsurancedetails">
+                <h2>Vehicle-Insurance-Claim</h2>
+                
+                <div class="form-group">
+                    <label for="policyNumber" class="col-sm-3">Policy Number</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="policyNumber" placeholder="Policy Number " class="form-control" value="${vehicleClaim.policyNumber}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name" class="col-sm-3">Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" placeholder="Name" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+               
+               <div class="form-group">
+                    <label for="address" class="col-sm-3">Address</label>
+                    <div class="col-sm-9">
+                        <textarea id="address"  placeholder="Address" class="form-control" rows="5" cols="10"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="col-sm-3">City</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="city" placeholder="City" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="state" class="col-sm-3">State</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="state" placeholder="State" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="zipCode" class="col-sm-3">Zip Code</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="zipCode" placeholder="zipCode" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Email </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" path="email" placeholder="Email" class="form-control" name= "email" value="${vehicleClaim.email}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber" class="col-sm-3">Phone number </label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="contactNumber"  placeholder="Phone number" class="form-control" value="${vehicleClaim.contactNumber}"/>
+                    </div>
+                </div>
+              	
+              	
+                <p>Details of the Insured Person Hospitalized</p>
+                
+                <div class="form-group">
+                    <label for="nameOfThePersonHospitalized" class="col-sm-3">Name Of the Person Hospitalized</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="nameOfThePersonHospitalized" placeholder="Name Of the Person Hospitalized" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3">Gender of the Person</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="female" value="female"> Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="male" value="male"> Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="other" value="other"> Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                	  <label class="col-sm-7">Relationship to primary insured</label>
+                	  <div class="col-sm-9">
+                      <select class="form-control">
+                      <option class="hidden"  selected disabled>Please select your option</option>
+                      <option>Self</option>
+                      <option>Spouse</option>
+                      <option>Child</option>
+                      <option>Father</option>
+                      <option>Mother</option>
+                      <option>Other</option>
+                      </select>
+                      </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="occupation" class="col-sm-6">Occupation of the person</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="occupation" placeholder="Occupation" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="otherAddress" class="col-sm-6">Address of the person</label>
+                    <div class="col-sm-9">
+                        <textarea id="otherAddress"  placeholder="Address of the person if different from above mentioned address else write null" class="form-control" rows="5" cols="10"></textarea>
+                    </div>
+                </div>
+                
+                <p>Details of Hospitalization</p>
+                
+                <div class="form-group">
+                    <label for="nameOfHospital" class="col-sm-6">Name of the Hospital</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="nameOfHospital" placeholder="Name of the Hospital" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                	  <label class="col-sm-6">Room Category Occupied</label>
+                	  <div class="col-sm-9">
+                      <select class="form-control">
+                      <option class="hidden"  selected disabled>Please select your option</option>
+                      <option>Day Care</option>
+                      <option>Single Occupancy</option>
+                      <option>Twin Sharing</option>
+                      <option>3 or more beds per room</option>
+                      
+                      </select>
+                      </div>
+                </div>
+                
+                <div class="form-group">
+                	  <label class="col-sm-6">Hospitalization Due to</label>
+                	  <div class="col-sm-9">
+                      <select class="form-control">
+                      <option class="hidden"  selected disabled>Please select your option</option>
+                      <option>Injury</option>
+                      <option>Illness</option>
+                      <option>Maternity</option>
+                      <option>Other</option>
+                      </select>
+                      </div>
+                </div>
+     
+                
+                <div class="form-group">
+					<label for="dateOfAddmission" class="col-sm-6">Date of the Admission in Hospital</label>
+						<div class="col-sm-9">
+							<input type="date" id="dateOfAddmission" 
+								class="form-control" autofocus value="${vehicleClaim.dateOfEvent}">
+						</div>
+				</div>
+				
+				<p>Details of Claim</p>
+				
+				<div class="form-group">
+					<label for="preBill" class="cols-sm-6">Pre-Hospitalization Bill</label>
+					<div>
+						<input type="number" id="preBill" class="form-control" autofocus value="${vehicleClaim.dateOfEvent}">
+					</div>
+				
+				</div>
+				
+				<div class="form-group">
+					<label for="hospitalBill" class="cols-sm-6">Hospital Bill</label>
+					<div>
+						<input type="number" id="hospitalBill" class="form-control" autofocus value="${vehicleClaim.dateOfEvent }">
+					</div>
+				
+				</div>
+				
+				<div class="form-group">
+					<label for="postBill" class="cols-sm-6">Post-Hospitalization Bill</label>
+					<div>
+						<input type="number" id="postBill" class="form-control" autofocus value="${vehicleClaim.dateOfEvent}">
+					</div>
+				
+				</div>
+				
+				
+				<p>Details of the Primary Insured Bank Account</p>
+				
+				<div class="form-group">
+					<label for="panNumber" class="cols-sm-6">PAN Number</label>
+					<div>
+						<input type="number" id="panNumber" class="form-control" autofocus value="${vehicleClaim.dateOfEvent }">
+					</div>
+				
+				</div>
+				<div class="form-group">
+					<label for="bankName" class="cols-sm-6">Name Of the Bank</label>
+					<div>
+						<input type="text" id="bankName" class="form-control" autofocus value="${vehicleClaim.dateOfEvent }">
+					</div>
+				
+				</div>
+				<div class="form-group">
+					<label for="accNumber" class="cols-sm-6">Bank Account Number</label>
+					<div>
+						<input type="number" id="accNumber" class="form-control" autofocus value="${vehicleClaim.dateOfEvent }">
+					</div>
+				
+				</div>
+				<div class="form-group">
+					<label for="ifsc" class="cols-sm-6">IFSC Code</label>
+					<div>
+						<input type="text" id="ifsc" class="form-control" autofocus value="${vehicleClaim.dateOfEvent }">
+					</div>
+				
+				</div>
+				
+				                            
+                <div class="pl-3">
+                <button type="submit" class="btn btn-outline-primary btn-block">Claim Now</button>
+
+                <button type="reset" class="btn btn-outline-primary btn-block">Clear</button>
+               </div>
+            </form:form> 
+        </div> 
+
+
+</body>
+</html>
