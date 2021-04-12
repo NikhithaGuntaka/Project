@@ -1,0 +1,195 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vehicle Insurance </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+body {
+     background: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&w=1000&q=80') fixed;
+    background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 700px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.error{
+color:red;
+}
+
+</style>
+</head>
+<body>
+<div>
+	<nav class="navbar navbar-expand-sm bg-dark">
+  		<h3 class=" nav-text text-info">Vehicle-Insurance-Claim</h3>
+        <ul class="navbar-nav ml-auto">
+        
+            
+           
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+
+                <form:form class="form-horizontal" role="form" method="post" action="/vehicleinsreg" modelAttribute="vehicleinsurancedetails">
+                <h2>Vehicle-Insurance-Claim</h2>
+                
+                <div class="form-group">
+                    <label for="policyNumber" class="col-sm-3">Policy Number</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="policyNumber" placeholder="Policy Number " class="form-control" value="${vehicleClaim.policyNumber}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="engineNumber" class="col-sm-3">Engine Number</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="engineNumber" placeholder="Engine Number " class="form-control" value="${vehicleClaim.engineNumber}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Email </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" path="email" placeholder="Email" class="form-control" name= "email" value="${vehicleClaim.email}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber" class="col-sm-3">Phone number </label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="contactNumber"  placeholder="Phone number" class="form-control" value="${vehicleClaim.contactNumber}"/>
+                    </div>
+                </div>
+              	
+              	<div class="form-group">
+                    <label for="name" class="col-sm-6">Name of the person insured</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" placeholder="Name of the person Insured" class="form-control" value="${vehicleClaim.name}"/>
+                    </div>
+                </div>
+                <p>Details of the Accident</p>
+                
+                <div class="form-group">
+					<label for="dateOfEvent" class="col-sm-8">Date of the Accident/Date When Vehicle is lost</label>
+						<div class="col-sm-9">
+							<input type="date" id="dateOfEvent" 
+								class="form-control" autofocus value="${vehicleClaim.dateOfEvent}">
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="placeOfEvent" class="col-sm-8">Place where Accident took place/Place where Vehicle is lost</label>
+						<div class="col-sm-9">
+							<input type="date" id=placeOfEvent 
+								class="form-control" autofocus value="${vehicleClaim.placeOfEvent}">
+						</div>
+				</div>
+                
+                <p>Details of the Vehicle</p>
+                
+                
+                <div class="form-group">
+					<label for="vehicleRegNo." class="col-sm-6">Registration No. of the Vehicle </label>
+					<div class="col-sm-9">
+						<form:input type="text" id="vehicleRegNo" name="vehicleRegNo" path="vehicleRegNo" placeholder="Registration No of the Vehicle" class="form-control"/>
+					</div>
+					<form:errors path="" class="error"/>
+				</div>
+				
+				 <div class="form-group">
+                	  <label class="col-sm-8">Model of Vehicle  </label>
+                	  <div class="col-sm-9">
+                      <form:input type="text" id="model" path="model" name="model" placeholder="Please Enter Model/Company of Vehicle" class="form-control"/>
+                      </div>
+                      <form:errors path="model" class="error"/>
+                </div>
+                
+                <div class="form-group">
+					<label for="dateOfManufacture" class="col-sm-3">Date of Manufacture</label>
+						<div class="col-sm-9">
+							<input type="date" id="dateOfManufacture" 
+								class="form-control" autofocus value="${vehicleClaim.dateOfManufacture}">
+						</div>
+				</div>
+                
+                <div class="form-group">
+                    <label for="approxLossFigure" class="col-sm-6">Approximate Loss Figure</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="approxLossFigure" placeholder="Loss Amount" class="form-control" value="${vehicleClaim.approxLossFigure}"/>
+                    </div>
+                </div>
+                                                
+                <div class="form-group">
+                    <label for="descriptionOfEvent" class="col-sm-6">Description Of the Event</label>
+                    <div class="col-sm-9">
+                        <textarea id="descriptionOfEvent"  placeholder="Theft/Accident/Etc" class="form-control" rows="5" cols="10"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="detailsOfOtherVehicle" class="col-sm-6">Details Of Other Vehicle if Involved</label>
+                    <div class="col-sm-9">
+                        <textarea id="descriptionOfEvent"  placeholder="Details Of Other Vehicle if Involved or write Null" class="form-control" rows="5" cols="10"></textarea>
+                    </div>
+                </div>
+                
+                <p>Contact Detials Of Witness</p>
+                
+                <div class="form-group">
+                    <label for="witnessEmail" class="col-sm-6">Email Id of the Witness </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="witnessEmail" path="witnessEmail" placeholder="Email" class="form-control" name= "email" value="${vehicleClaim.witnessEmail}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="witnessContactNumber" class="col-sm-6">Phone number of the Witness </label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="witnessContactNumber"  placeholder="Phone number" class="form-control" value="${vehicleClaim.witnessContactNumber}"/>
+                    </div>
+                </div>
+              	
+              	<div class="form-group">
+                    <label for="nameOfTheWitness" class="col-sm-6">Name of the Witness</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="nameOfTheWitness" placeholder="Name of the Witness" class="form-control" value="${vehicleClaim.nameOfTheWitness}"/>
+                    </div>
+                </div>
+                
+                
+                            
+                                               
+                <div class="pl-3">
+                <button type="submit" class="btn btn-outline-primary btn-block">Claim Now</button>
+
+                <button type="reset" class="btn btn-outline-primary btn-block">Clear</button>
+               </div>
+            </form:form> 
+        </div> 
+
+
+</body>
+</html>
