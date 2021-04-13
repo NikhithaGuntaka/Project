@@ -1,0 +1,166 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Medical Insurance</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+body {
+     background: url('https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHw%3D&w=1000&q=80') fixed;
+    background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 700px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 { 
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+
+</style>
+</head>
+<body>
+<div>
+	<nav class="navbar navbar-expand-sm bg-dark">
+  		<h3 class=" nav-text text-info">Medical-Insurance</h3>
+        <ul class="navbar-nav ml-auto">
+        
+            
+           
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+            <form:form class="form-horizontal" role="form" method="post" action="/medicalinsreg" modelAttribute="healthinsurancedetails">
+                <h2>Medical Insurance</h2>
+              	<div class="form-group">
+                    <label for="firstName" class="col-sm-3">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" value="${customerObj.firstName}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" value="${customerObj.lastName}"/>
+                    </div>
+                </div>
+                
+                                 
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="dob"  class="form-control" value="${customerObj.dob }"/>
+                    </div>
+   
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber" class="col-sm-3">Phone number </label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="contactNumber"  placeholder="Phone number" class="form-control" value="${customerObj.contactNumber}"/>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Email </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" path="email" placeholder="Email" class="form-control" name= "email" value="${customerObj.email}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3">Policy Type </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="policyType" path="policyType" name="policyType"  class="form-control"  value="${policyObj.policyType}"/>
+                    </div>
+                </div><div class="form-group">
+                    <label for="email" class="col-sm-3">Policy Name </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="policyName" path="policyName" name="policyName"  class="form-control"  value="${policyObj.policyName}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                	  <label class="col-sm-8">Please Select Members Insured </label>
+                	  <div class="col-sm-9">
+                      <form:select path="membersInsured" type="text" class="form-control" id="membersInsured" name="membersInsured">
+							<form:options items="${members}" />
+					  </form:select>
+                      </div>
+                      <form:errors class="error" path="membersInsured"/>
+                </div>
+                
+                <div class="form-group">
+                	  <label class="col-sm-8">Please select health Issues if any </label>
+                	  <div class="col-sm-9">
+                      <form:select path="healthIssues" type="text" class="form-control" id="healthIssues" name="healthIssues">
+							<form:options items="${healthissues}" />
+					  </form:select>
+                      </div>
+                      <form:errors class="error" path="healthIssues"/>
+                </div>
+                            
+                <div class="form-group">
+                	  <label class="col-sm-8">PAN </label>
+                	  <div class="col-sm-9">
+                      <form:input type="text" id="panCardNo" path="panCardNo" name="panCardNo" placeholder="Please Enter PAN Card No" class="form-control"/>
+                      </div>
+                      <form:errors path="panCardNo" class="error"/>
+                </div>
+                <div class="form-group">
+                	  <label class="col-sm-8">Aadhar</label>
+                	  <div class="col-sm-9">
+                      <form:input type="text" id="aadharCardNo" path="aadharCardNo" name="aadharCardNo" placeholder="Please Enter Aadhar Card No" class="form-control" />
+                      </div>
+                      <form:errors path="aadharCardNo" class="error"/>
+                </div>
+                
+                 <div class="form-group">
+                    <label class="col-sm-7">Would you like to set remainder for bill payments?</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="yes" value="yes" name="reminder"> Yes
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="no" value="no" name="reminder"> No
+                                </label>
+                            </div>
+                            <form:errors path="" class="error"/>
+                        </div>
+                    </div>
+                </div>
+                
+                                
+                <div class="pl-3">
+                <button type="submit" class="btn btn-outline-primary btn-block">Buy Now</button>
+
+                <button type="reset" class="btn btn-outline-primary btn-block">Clear</button>
+               </div>
+            </form:form> 
+        </div> 
+
+
+</body>
+</html>
