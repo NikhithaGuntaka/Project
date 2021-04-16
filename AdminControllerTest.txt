@@ -1,0 +1,63 @@
+package com.cts.pms;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.setup.SharedHttpSessionConfigurer.sharedHttpSession;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.cts.pms.controller.AdminController;
+
+
+@SpringBootTest
+class PmsApplicationTests {
+	
+	 @Autowired
+	    private AdminController adminController;
+	    
+	    
+	    private MockMvc mockMvc;
+	    
+
+	    @BeforeEach
+	    public void setup() {
+	        mockMvc = MockMvcBuilders.standaloneSetup(adminController).apply(sharedHttpSession()).build();
+	    }
+	    
+	    @Test
+	    public void testGetAdmin() throws Exception {
+	        mockMvc.perform(get("/admin")).andExpect(status().isOk());
+	    }
+	   
+	    @Test
+	    public void testAddAdmin() throws Exception {
+	        mockMvc.perform(post("/addAdmin")).andExpect(status().isOk());
+	    }
+    
+	    @Test
+	    public void testAdminAuth() throws Exception {
+	        mockMvc.perform(post("/AdminLoginAuth"));
+	    }
+    
+	    @Test
+	    public void testAdminRedirect() throws Exception {
+	        mockMvc.perform(get("/adminRedirect")).andExpect(status().isOk());
+	    }
+ 
+	    
+	    
+	   
+	    @Test
+	    public void testLogout() throws Exception {
+	        mockMvc.perform(get("/adminLogout"));
+	    }
+	        
+
+
+}
